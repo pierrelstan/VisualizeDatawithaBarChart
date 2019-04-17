@@ -32,13 +32,13 @@ var  OnlytheYears=(data) => {
   }
 }
 
-
   var minData = d3.min(dataset,(d) =>  OnlytheYears(d[0]))
   var maxData = d3.min(dataset,(d) =>  OnlytheYears(d[0]))
 
-        var xScale = d3.scaleBand().range([0 ,width ]),
+        var xScale = d3.scaleBand().rangeRound([0, width]).paddingInner(0.05),
   yScale = d3.scaleLinear().range([height , 0]);
 // console.log(xScale)
+var parseDate = d3.timeParse("%Y");
 var g = svg.append("g")
 .attr("id", "x-axis")
          .attr("transform", "translate(" + 100 + "," + 100 + ")");
@@ -56,7 +56,6 @@ var g = svg.append("g")
 
         g.append("g")
         .attr("id", "y-axis")
-        .attr("transform", "translate(0," + + ")")
          .call(d3.axisLeft(yScale).tickFormat(function(d){
              return  d;
          }))
@@ -66,18 +65,19 @@ var g = svg.append("g")
          .enter()
          .append("rect")
          .attr("class","bar")
-         .attr("data-date",(d)=> OnlytheYears(d[0]))
+         .attr("data-date",(d)=> d[0])
          .attr("data-gdp", (d)=> d[1])
-         .attr("x", (d, i) => i * 30)
+         .attr("x", (d, i) => i * 40)
          .attr("y", (d, i) => {
            // Add your code below this line
-           return height - 3 * d[1]
+          //  return height - 40 *
+           return height - 30 * d[1]
            
            
            // Add your code above this line
          })
-         .attr("width", 25)
-         .attr("height", (d, i) => 3 * d[1]);
+         .attr("width", 23)
+         .attr("height", (d, i) => d[1]);
    
     
    
