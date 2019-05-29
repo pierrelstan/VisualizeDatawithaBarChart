@@ -1,3 +1,23 @@
+.container{
+    text-align: center;
+}
+body{
+    background-color: #333;
+    color: #fff;
+}
+
 #title {
     text-align: center;
 }
+.bar:hover {
+    fill: brown;
+  }
+  footer{
+      display: block;
+      text-align: center;
+      
+  }
+  .link{
+      color: yellow
+  }
+ 
