@@ -66,6 +66,15 @@ function Chart(data) {
     .attr("width", (ChartArea.width))
     .attr("height", ChartArea.height);
 
+
+    svg.append('text')
+    .attr('class', 'label')
+    .attr('transform', 'rotate(-90)')
+    .attr('x', -400)
+    .attr('y', 40)
+    .attr('fill', '#fff')
+    .text('Gross Domestic Product in Billions')
+
   var tooltip = rectGrp.select("body")
     .data(data)
     .enter()
