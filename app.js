@@ -94,12 +94,12 @@ function Chart(data) {
     .enter()
     .append("rect")
     .attr("data-gdp", (d) => d[1])
-    .attr("data-date", (d, i) => d[0])
+    .attr("data-date", (d) => d[0])
     .attr("x", (d, i) => i * (ChartArea.width / data.length))
     .attr("y", (d, i) => yScale(d[1]))
     .attr("width", (ChartArea.width / data.length))
     .attr("height", (d, i) => ChartArea.height - yScale(d[1]))
-    .attr("fill", (d, i) => `cyan`)
+    .attr("fill",  `cyan`)
     .attr("class", "bar")
     .on("mouseover", function (d) {
       var num = ['01', '04', '07', '10'];
